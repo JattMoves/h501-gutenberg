@@ -3,7 +3,7 @@ from .transform import get_data
 
 def list_authors(by_languages=False, alias=False):
     data = get_data()
-    name_column = "alias" if alias else "author"
+    name_column = "author_alias" if alias else "author"
     data = data.dropna(subset=[name_column]).copy()
     data[name_column] = data[name_column].str.strip()
     data = data[data[name_column] != ""]
