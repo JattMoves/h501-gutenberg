@@ -1,12 +1,12 @@
 import pandas as pd
 
+DATA = (
+    "https://raw.githubusercontent.com/rfordatascience/tidytuesday/"
+    "main/data/2025/2025-06-03"
+)
 
-def load_gutenberg_data():
-    base_url = (
-        "https://raw.githubusercontent.com/rfordatascience/tidytuesday/"
-        "main/data/2025/2025-06-03"
-    )
-    authors = pd.read_csv(f"{base_url}/gutenberg_authors.csv")
-    metadata = pd.read_csv(f"{base_url}/gutenberg_metadata.csv")
-    languages = pd.read_csv(f"{base_url}/gutenberg_languages.csv")
-    return authors, metadata, languages
+
+def get_data():
+    authors = pd.read_csv(f"{DATA}/gutenberg_authors.csv")
+    metadata = pd.read_csv(f"{DATA}/gutenberg_metadata.csv")
+    return authors.merge(metadata, on="gutenberg_author_id", how="inner")
