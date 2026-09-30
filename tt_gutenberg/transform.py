@@ -1,6 +1,5 @@
 from .data import load_gutenberg_data
 
-
 def get_data():
     authors, metadata, languages = load_gutenberg_data()
 
@@ -15,3 +14,5 @@ def get_data():
         on="gutenberg_id",
         how="inner",
     )
+    
+    
