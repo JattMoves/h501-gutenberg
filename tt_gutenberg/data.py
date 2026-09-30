@@ -6,7 +6,7 @@ DATA = (
 )
 
 
-def get_data():
+def load_gutenberg_data():
     authors = pd.read_csv(f"{DATA}/gutenberg_authors.csv")
     metadata = pd.read_csv(f"{DATA}/gutenberg_metadata.csv")
-    return authors.merge(metadata, on="gutenberg_author_id", how="inner")
+    return authors, metadata
