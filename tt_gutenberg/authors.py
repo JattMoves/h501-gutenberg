@@ -2,6 +2,11 @@ from .transform import get_data
 
 
 def list_authors(by_languages=False, alias=False):
+    """Return author names or aliases ordered by translation count.
+
+    Counts language rows when by_languages is true, otherwise distinct books.
+    Set alias to true to list aliases instead of canonical author names.
+    """
     data = get_data()
     name_column = "author_alias" if alias else "author"
     data = data.dropna(subset=[name_column]).copy()
